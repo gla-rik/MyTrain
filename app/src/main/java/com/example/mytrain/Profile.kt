@@ -220,7 +220,6 @@ class Profile : Fragment() {
                 }
             }
         }
-        Log.e("Profile", "Invalid exercise reference: $exerciseRef")
         return Tasks.forResult(null)
     }
 
