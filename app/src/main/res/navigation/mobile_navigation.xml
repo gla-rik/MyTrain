@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/activity_main2">
+    <fragment
+        android:id="@+id/NavigationOne"
+        android:name="com.example.mytrain.FirstFragment"
+        android:label="Первый"
+        tools:layout="@layout/fragment_first" />
+    <fragment
+        android:id="@+id/NavigationTwo"
+        android:name="com.example.mytrain.SecondFragment"
+        android:label="Второй"
+        tools:layout="@layout/fragment_second" />
+    <fragment
+        android:id="@+id/NavigationThree"
+        android:name="com.example.mytrain.ThreeFragment"
+        android:label="Третий"
+        tools:layout="@layout/fragment_three" />
+
+    <fragment
+        android:id="@+id/navigation_user"
+        tools:layout="@layout/activity_main2"
+        />
+
+
+</navigation>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_fragment1"
+        android:icon="@drawable/ic_subscription"
+        android:title="План"/>
+    <item
+        android:id="@+id/nav_fragment3"
+        android:icon="@drawable/ic_training"
+        android:title="Тренировки"/>
+    <item
+        android:id="@+id/nav_fragment5"
+        android:icon="@drawable/ic_stat"
+        android:title="Статистика"/>
+</menu>

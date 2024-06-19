@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My Train</string>
+    <string name="my_workouts">My workouts</string>
+    <string name="your_email">Введите почту</string>
+    <string name="your_password">Введите пароль</string>
+    <string name="login">Войти</string>
+    <string name="forgot_password">Забыл пароль</string>
+    <string name="registration">Регистрация</string>
+    <string name="registery">Регистрация</string>
+    <string name="sign_in">Войти</string>
+    <string name="weight">Вес</string>
+    <string name="log_out">Выход</string>
+    <string name="height">Рост</string>
+</resources>

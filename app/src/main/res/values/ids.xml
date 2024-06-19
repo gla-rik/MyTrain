@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="activity_main2" type="id" />
+    <item name="emailTextView" type="id" />
+    <item name="weightTextView" type="id" />
+    <item name="heightTextView" type="id" />
+    <item name="bmiTextView" type="id" />
+    <item name="exerciseNameTextView" type="id" />
+    <item name="day1StatsTextView" type="id" />
+    <item name="day2StatsTextView" type="id" />
+</resources>

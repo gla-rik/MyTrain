@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Calendar">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/button_arms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="РУКИ"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/button_shoulders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ПЛЕЧИ"
+            app:layout_constraintTop_toBottomOf="@+id/button_arms"/>
+
+        <Button
+            android:id="@+id/button_chest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ГРУДЬ"
+            app:layout_constraintTop_toBottomOf="@+id/button_shoulders"/>
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="СПИНА"
+            app:layout_constraintTop_toBottomOf="@+id/button_chest"/>
+
+        <Button
+            android:id="@+id/button_glutes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ЯГОДИЦЫ"
+            app:layout_constraintTop_toBottomOf="@+id/button_back"/>
+
+        <Button
+            android:id="@+id/button_abs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ЖИВОТ"
+            app:layout_constraintTop_toBottomOf="@+id/button_glutes"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
