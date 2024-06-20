@@ -426,8 +426,16 @@ class EditWorkoutDayActivity : AppCompatActivity() {
                                                             }
                                                         }
 
+                                                        val deleteSetButton = Button(this).apply {
+                                                            text = "Удалить"
+                                                            setOnClickListener {
+                                                                deleteSetFromFirestore(blockId, exerciseIndex, setIndex)
+                                                            }
+                                                        }
+
                                                         setLayout.addView(setTextView)
                                                         setLayout.addView(editSetButton)
+                                                        setLayout.addView(deleteSetButton)
                                                         exercisesLayout.addView(setLayout)
                                                     }
                                                 }
@@ -459,6 +467,42 @@ class EditWorkoutDayActivity : AppCompatActivity() {
         }.addOnFailureListener { e ->
             Toast.makeText(this, "Ошибка загрузки упражнений: ${e.message}", Toast.LENGTH_SHORT).show()
             Log.e("EditWorkoutDayActivity", "Ошибка загрузки упражнений для блока: $blockId", e)
+        }
+    }
+
+    private fun deleteSetFromFirestore(blockId: String, exerciseIndex: Int, setIndex: Int) {
+        if (userId != null && workoutId != null) {
+            val blockDocRef = db.collection("users")
+                .document(userId!!)
+                .collection("user_date_workouts")
+                .document(workoutId!!)
+                .collection("blocks")
+                .document(blockId)
+
+            blockDocRef.get().addOnSuccessListener { document ->
+                if (document.exists()) {
+                    val exercises = document.get("exercises") as? MutableList<Map<String, Any>>
+                    if (exercises != null && exerciseIndex < exercises.size) {
+                        val exercise = exercises[exerciseIndex].toMutableMap()
+                        val sets = exercise["sets_exercise"] as? MutableList<Map<String, String>>
+                        if (sets != null && setIndex < sets.size) {
+                            sets.removeAt(setIndex) // Удаляем подход
+                            exercise["sets_exercise"] = sets
+                            exercises[exerciseIndex] = exercise
+                            blockDocRef.update("exercises", exercises)
+                                .addOnSuccessListener {
+                                    Toast.makeText(this, "Подход удален", Toast.LENGTH_SHORT).show()
+                                    loadBlocks()
+                                }
+                                .addOnFailureListener { e ->
+                                    Toast.makeText(this, "Ошибка удаления подхода: ${e.message}", Toast.LENGTH_SHORT).show()
+                                }
+                        }
+                    }
+                }
+            }.addOnFailureListener { e ->
+                Toast.makeText(this, "Ошибка загрузки блока: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
